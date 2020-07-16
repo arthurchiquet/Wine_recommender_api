@@ -2,15 +2,15 @@
 
 # Import from standard library
 import os
-import Wine-recommender-api
+import Wine_recommender_api
 import pandas as pd
 # Import from our lib
-from Wine-recommender-api.lib import clean_data
+from Wine_recommender_api.lib import clean_data
 import pytest
 
 
 def test_clean_data():
-    datapath = os.path.dirname(os.path.abspath(Wine-recommender-api.__file__)) + '/data'
+    datapath = os.path.dirname(os.path.abspath(Wine_recommender_api.__file__)) + '/data'
     df = pd.read_csv('{}/data.csv.gz'.format(datapath))
     first_cols = ['id', 'civility', 'birthdate', 'city', 'postal_code', 'vote_1']
     assert list(df.columns)[:6] == first_cols

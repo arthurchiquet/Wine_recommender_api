@@ -1,5 +1,5 @@
 # Data analysis
-- Document here the project: Wine-recommender-api
+- Document here the project: Wine_recommender_api
 - Description: Project Description
 - Data Source:
 - Type of analysis:
@@ -22,15 +22,15 @@ Unittest test:
   $ make clean install test
 ```
 
-Check for Wine-recommender-api in gitlab.com/{group}.
+Check for Wine_recommender_api in gitlab.com/{group}.
 If your project is not set please add it:
 
-- Create a new project on `gitlab.com/{group}/Wine-recommender-api`
+- Create a new project on `gitlab.com/{group}/Wine_recommender_api`
 - Then populate it:
 
 ```bash
-  $ ##   e.g. if group is "{group}" and project_name is "Wine-recommender-api"
-  $ git remote add origin git@gitlab.com:{group}/Wine-recommender-api.git
+  $ ##   e.g. if group is "{group}" and project_name is "Wine_recommender_api"
+  $ git remote add origin git@gitlab.com:{group}/Wine_recommender_api.git
   $ git push -u origin master
   $ git push -u origin --tags
 ```
@@ -38,10 +38,10 @@ If your project is not set please add it:
 Functionnal test with a script:
 ```bash
   $ cd /tmp
-  $ Wine-recommender-api-run
+  $ Wine_recommender_api-run
 ```
 # Install
-Go to `gitlab.com/{group}/Wine-recommender-api` to see the project, manage issues,
+Go to `gitlab.com/{group}/Wine_recommender_api` to see the project, manage issues,
 setup you ssh public key, ...
 
 Create a python3 virtualenv and activate it:
@@ -52,19 +52,19 @@ Create a python3 virtualenv and activate it:
 
 Clone the project and install it:
 ```bash
-  $ git clone gitlab.com/{group}/Wine-recommender-api
-  $ cd Wine-recommender-api
+  $ git clone gitlab.com/{group}/Wine_recommender_api
+  $ cd Wine_recommender_api
   $ pip install -r requirements.txt
   $ make clean install test                # install and test
 ```
 Functionnal test with a script:
 ```bash
   $ cd /tmp
-  $ Wine-recommender-api-run
-``` 
+  $ Wine_recommender_api-run
+```
 
 # Continus integration
-## Github 
+## Github
 Every push of `master` branch will execute `.github/workflows/pythonpackages.yml` docker jobs.
 ## Gitlab
 Every push of `master` branch will execute `.gitlab-ci.yml` docker jobs.

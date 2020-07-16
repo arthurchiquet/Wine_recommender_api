@@ -6,20 +6,20 @@ from os.path import split
 import argparse
 import pandas as pd
 
-# Import from Wine-recommender-api
-import Wine-recommender-api
-from Wine-recommender-api.lib import clean_data
+# Import from Wine_recommender_api
+import Wine_recommender_api
+from Wine_recommender_api.lib import clean_data
 
 if __name__ == '__main__':
     usage = '%(prog)s'
-    description = 'Wine-recommender-api_description'
+    description = 'Wine_recommender_api_description'
     # https://docs.python.org/3/library/argparse.html
     # https://docs.python.org/3/howto/argparse.html
     parser = argparse.ArgumentParser(description=description, usage=usage)
     args = parser.parse_args()
-    folder_source, _ = split(Wine-recommender-api.__file__)
+    folder_source, _ = split(Wine_recommender_api.__file__)
     df = pd.read_csv('{}/data/data.csv.gz'.format(folder_source))
-    print('  Wine-recommender-api/data/data.csv.gz Loaded')
+    print('  Wine_recommender_api/data/data.csv.gz Loaded')
 
     res = clean_data(df)
     res.to_csv('out.csv', index=False)

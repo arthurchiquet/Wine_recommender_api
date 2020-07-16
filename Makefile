@@ -5,10 +5,10 @@ install_requirements:
 	@pip install -r requirements.txt
 
 check_code:
-	@flake8 scripts/* Wine-recommender-api/*.py
+	@flake8 scripts/* Wine_recommender_api/*.py
 
 black:
-	@black scripts/* Wine-recommender-api/*.py
+	@black scripts/* Wine_recommender_api/*.py
 
 test:
 	@coverage run -m pytest tests/*.py
@@ -22,8 +22,8 @@ clean:
 	@rm -f .coverage
 	@rm -fr */__pycache__ */*.pyc __pycache__
 	@rm -fr build dist
-	@rm -fr Wine-recommender-api-*.dist-info
-	@rm -fr Wine-recommender-api.egg-info
+	@rm -fr Wine_recommender_api-*.dist-info
+	@rm -fr Wine_recommender_api.egg-info
 
 install:
 	@pip install . -U

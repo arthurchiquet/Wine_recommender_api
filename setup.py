@@ -5,12 +5,12 @@ with open('requirements.txt') as f:
     content = f.readlines()
 requirements = [x.strip() for x in content if 'git+' not in x]
 
-setup(name='Wine-recommender-api',
+setup(name='Wine_recommender_api',
       version="1.0",
       description="Project Description",
       packages=find_packages(),
       test_suite = 'tests',
       # include_package_data: to install data from MANIFEST.in
       include_package_data=True,
-      scripts=['scripts/Wine-recommender-api-run'],
+      scripts=['scripts/Wine_recommender_api-run'],
       zip_safe=False)
