@@ -9,7 +9,7 @@ def compute_mean_embedding(model=None,list=None):
     clean_list=[model.wv[word] for word in list if word in model.wv.vocab]
     return np.mean(clean_list,axis=0)
 
-def compute_distance(reviews_vector, input_vector, distance='euclidean'):
+def compute_distance(reviews_vector, input_vector, distance='cosine'):
     ### compute euclidian distance between input wine and other wines
     if distance =='euclidean':
         distance_calc = euclidean_distances(reviews_vector, input_vector)
@@ -28,6 +28,10 @@ def lemma(text):
     lemmatized = [lemmatizer.lemmatize(word) for word in text] # Lemmatize
     return lemmatized
 
+def sno(text):
+    sno = SnowballStemmer('english')
+    return [sno.stem(word) for word in text]
+
 def lowercase(word):
     return word.lower()
 
@@ -41,14 +45,22 @@ def split_url(title):
         url += i + "+"
     return url[:-1]
 
-def clean_reviews(text, bad_words, n_grams):
+def return_mapped_descriptor(descriptors, word):
+    if word in list(descriptors.index):
+        normalized_word = descriptors['level_3'][word]
+        return normalized_word
+    else:
+        return word
+
+def clean_reviews(text, bad_words, n_grams, descriptors):
     text = remove_punctuation(text)
     text = text.lower()
     text = ''.join(word for word in text if not word.isdigit())
     text_token = text.split()
     clean_text = [word for word in text_token if not word in bad_words]
-    sno = SnowballStemmer('english')
     clean_text = lemma(clean_text)
-    clean_text = [sno.stem(word) for word in clean_text]
+    clean_text = sno(clean_text)
     clean_text = n_grams[clean_text]
+    clean_text = [return_mapped_descriptor(descriptors, word) for word in clean_text]
     return clean_text
+
