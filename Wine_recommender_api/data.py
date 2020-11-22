@@ -14,11 +14,13 @@ def get_params(mode):
         n_grams = Phraser.load("data/ngrams_model.pkl")
         dict_tfidf = np.load('data/my_dict.npy',allow_pickle='TRUE').item()
         word2vec = Word2Vec.load('data/word2vec.model')
-        return bad_words, n_grams, dict_tfidf, word2vec
+        descriptors = pd.read_csv('data/descriptors.csv').set_index('raw descriptor')
+        return bad_words, n_grams, dict_tfidf, word2vec, descriptors
     if mode == 'half':
         bad_words = pd.read_csv('data/bad_words.csv').values
         n_grams = Phraser.load("data/ngrams_model.pkl")
-        return bad_words, n_grams
+        descriptors = pd.read_csv('data/descriptors.csv').set_index('raw descriptor')
+        return bad_words, n_grams, descriptors
 
 def clean_df(df):
     df = df.drop(columns=['taster_twitter_handle','designation','region_2'])
